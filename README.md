@@ -20,8 +20,8 @@ Link: [HKUST - fast-planner][https://github.com/HKUST-Aerial-Robotics/Fast-Plann
 - 이후 실제 실험시에 (zed가 달려있는 실제 드론으로 실험)
 4. (드론) mavros와 zed 패키지 실행 
 5. (컴퓨터) rosrun camera_to_world camera_to_world
-6. (컴퓨터) roslaunch plan_manage rviz.launch
-7. (컴퓨터) topo_replan.launch 수정
+6. (컴퓨터) roslaunch plan_manage rviz.launch (hkust fast planner 패키지 필요)
+7. (컴퓨터) plan_manage의 topo_replan.launch 수정
 ``` launch
 <launch>
   <!-- global parameters -->
