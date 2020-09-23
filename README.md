@@ -14,13 +14,13 @@ Link: [HKUST - fast-planner][https://github.com/HKUST-Aerial-Robotics/Fast-Plann
 ## 2.how to use
 
 1. catkin_ws/src 폴더로 진입
-2. git clone https://github.com/0307kwon/mydrone_gui_planner_package.git
-3. catkin_make
+2. $ git clone https://github.com/0307kwon/mydrone_gui_planner_package.git
+3. $ catkin_make
 
 - 이후 실제 실험시에 (zed가 달려있는 실제 드론으로 실험)
 4. (드론) mavros와 zed 패키지 실행 
-5. (컴퓨터) rosrun camera_to_world camera_to_world
-6. (컴퓨터) roslaunch plan_manage rviz.launch (hkust fast planner 패키지 필요)
+5. (컴퓨터) $ rosrun camera_to_world camera_to_world
+6. (컴퓨터) $ roslaunch plan_manage rviz.launch (hkust fast planner 패키지 필요)
 7. (컴퓨터) plan_manage의 topo_replan.launch 수정
 ``` launch
 <launch>
@@ -108,8 +108,8 @@ Link: [HKUST - fast-planner][https://github.com/HKUST-Aerial-Robotics/Fast-Plann
 
 </launch>
 ```
-8. (컴퓨터) roslaunch plan_manage topo_replan.launch
-9. (컴퓨터) rosrun mydrone_gui_planner mydrone_gui_planner
+8. (컴퓨터) $ roslaunch plan_manage topo_replan.launch
+9. (컴퓨터) $ rosrun mydrone_gui_planner mydrone_gui_planner
 
 ## 3. caution
 
