@@ -1,0 +1,13 @@
+<launch>
+
+
+  <node pkg="camera_to_world" name="camera_to_world" type="camera_to_world" output="screen">
+
+  </node>
+
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+
+  </include>
+
+
+</launch>
