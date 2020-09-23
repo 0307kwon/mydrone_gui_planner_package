@@ -117,4 +117,6 @@ rviz의 map이 생성될 때가 있고 안될 때가 있다면
 zed의 depth 메세지와 mavros의 위치 메세지의 timestamp가 같은 선 상에 있지 않아
 생기는 문제일 수 있으니 확인.
 
+## 4. test result
+
 <img src="./mydrone_gui_planner/image/fast_planner.gif" width="50%"></img>
