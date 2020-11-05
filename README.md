@@ -119,4 +119,4 @@ zed의 depth 메세지와 mavros의 위치 메세지의 timestamp가 같은 선 
 
 ## 4. test result
 
-<img src="./mydrone_gui_planner/image/fast_planner.gif" width="50%"></img>
+<img src="./mydrone_gui_planner/image/fast_planner.gif" width="100%"></img>
