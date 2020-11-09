@@ -35,7 +35,7 @@ ros topic과 비슷하게 항상 Ros 서버에 broadcast 되고 있어 언제 �
 
 <img src="./readme_images/image03.png" width="500px">
 
-### camera_to_world 패키지
+### ● camera_to_world 패키지
 
 1. zed camera 좌표계와 같은 형태의 tf를 만들어 broadcast. ( line 40 ~ 59 )
 
@@ -96,7 +96,7 @@ camera_tf.pose.orientation.w = transform.getRotation().w();
 tf_pub.publish(camera_tf);
 ```
 
-### mydrone_gui_planner 패키지
+### ● mydrone_gui_planner 패키지
 => [mydrone_gui_keyboard](https://github.com/0307kwon/mydrone_gui_keyboard)의 구조와 유사  
 
 
