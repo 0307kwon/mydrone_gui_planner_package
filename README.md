@@ -89,7 +89,8 @@
 ```
 
 ### mydrone_gui_planner 패키지
-=> [mydrone_gui_keyboard](https://github.com/0307kwon/mydrone_gui_keyboard)의 구조와 
+=> [mydrone_gui_keyboard](https://github.com/0307kwon/mydrone_gui_keyboard)의 구조와 유사  
+
 
 
 ## 5.How to use
