@@ -5,6 +5,10 @@
 
 HKUST의 fast-planner에 gui를 적용할 때 필요한 패키지들
 
+
+<img src="./mydrone_gui_planner/image/fast_planner.gif" width="100%"></img>
+
+
 1. camera_to_world : camera pose를 fast-planner가 요구하는 좌표계로 맞춰서 publish 해주는 패키지
 2. mydrone_gui_planner : fast-planner에 대응하는 gui
 
@@ -117,6 +121,4 @@ rviz의 map이 생성될 때가 있고 안될 때가 있다면
 zed의 depth 메세지와 mavros의 위치 메세지의 timestamp가 같은 선 상에 있지 않아
 생기는 문제일 수 있으니 확인.
 
-## 4. test result
 
-<img src="./mydrone_gui_planner/image/fast_planner.gif" width="100%"></img>
