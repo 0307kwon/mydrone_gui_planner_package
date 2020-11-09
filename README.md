@@ -10,7 +10,7 @@
 
 4. [Code structure](https://github.com/0307kwon/mydrone_gui_planner_package#4-code-structure)
 
-5. [How to use]https://github.com/0307kwon/mydrone_gui_planner_package#5how-to-use)
+5. [How to use](https://github.com/0307kwon/mydrone_gui_planner_package#5how-to-use)
 
 6. [Caution](https://github.com/0307kwon/mydrone_gui_planner_package#6-caution)
 
