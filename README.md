@@ -1,7 +1,7 @@
 # mydrone_gui_planner_package
 
 
-## 1.summary
+## 1.Summary
 
 <img src="./mydrone_gui_planner/image/fast_planner.gif" width=500px></img>
 
@@ -10,10 +10,20 @@
 1. camera_to_world : camera pose를 fast-planner가 요구하는 좌표계로 맞춰서 publish 해주는 패키지
 2. mydrone_gui_planner : fast-planner에 대응하는 gui
 
-Link: [HKUST - fast-planner][https://github.com/HKUST-Aerial-Robotics/Fast-Planner]
+## 2. Hardware structure
+
+<img src="./readme_images/image01.png" width="500px">
+
+▲ 드론의 구성
+
+<img src="./readme_images/image02.png" width="500px">
+
+▲ 전체 Ros 통신 구성
+
+## 3. Code structure 
 
 
-## 2.how to use
+## 4.How to use
 
 1. catkin_ws/src 폴더로 진입
 2. $ git clone https://github.com/0307kwon/mydrone_gui_planner_package.git
@@ -113,7 +123,10 @@ Link: [HKUST - fast-planner][https://github.com/HKUST-Aerial-Robotics/Fast-Plann
 8. (컴퓨터) $ roslaunch plan_manage topo_replan.launch
 9. (컴퓨터) $ rosrun mydrone_gui_planner mydrone_gui_planner
 
-## 3. caution
+## 5. Caution
+
+rviz의 map 생성이 안되는 문제가 있다면
+zed의 depth 메세지와 mavros의 위치 메세지의 timestamp가 같은 
 
 rviz의 map이 생성될 때가 있고 안될 때가 있다면
 zed의 depth 메세지와 mavros의 위치 메세지의 timestamp가 같은 선 상에 있지 않아
