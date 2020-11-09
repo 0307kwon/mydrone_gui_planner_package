@@ -7,10 +7,12 @@
 
 장애물 회피 경로를 만들어주는 [HKUST의 fast-planner](https://github.com/HKUST-Aerial-Robotics/Fast-Planner)를 실제 드론에 적용할 때 필요한 패키지들
 
-1. camera_to_world : camera pose를 fast-planner가 요구하는 좌표계로 맞춰서 publish 해주는 패키지
-2. mydrone_gui_planner : fast-planner에 대응하는 gui
+1. camera_to_world : zed mini(depth camera) 좌표계를 fast-planner가 요구하는 좌표계로 맞춰서 publish 해주는 패키지
+2. mydrone_gui_planner : fast-planner가 생성하는 궤도를 따라가도록 드론에게 명령을 전달하는 gui
 
-## 2. Hardware structure
+## 2. Theory
+
+## 3. Hardware structure
 
 <img src="./readme_images/image01.png" width="500px">
 
@@ -20,10 +22,13 @@
 
 ▲ 전체 Ros 통신 구성
 
-## 3. Code structure 
+## 4. Code structure
+
+<img src="./readme_images/image03.png" width="500px">
 
 
-## 4.How to use
+
+## 5.How to use
 
 1. catkin_ws/src 폴더로 진입
 2. $ git clone https://github.com/0307kwon/mydrone_gui_planner_package.git
@@ -123,7 +128,7 @@
 8. (컴퓨터) $ roslaunch plan_manage topo_replan.launch
 9. (컴퓨터) $ rosrun mydrone_gui_planner mydrone_gui_planner
 
-## 5. Caution
+## 6. Caution
 
 rviz의 map 생성이 안되는 문제가 있다면
 zed의 depth 메세지와 mavros의 위치 메세지의 timestamp가 같은 
