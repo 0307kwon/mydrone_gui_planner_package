@@ -5,7 +5,7 @@
 
 <img src="./mydrone_gui_planner/image/fast_planner.gif" width=500px></img>
 
-장애물 회피 경로를 만들어주는 [HKUST의 fast-planner](https://github.com/HKUST-Aerial-Robotics/Fast-Planner)를 실제 드론에 적용할 때 필요한 패키지들
+장애물 회피 경로를 만들어주는 [HKUST의 fast-planner](https://github.com/HKUST-Aerial-Robotics/Fast-Planner)를 실제 드론에 적용할 때 필요한 패키지들입니다.
 
 1. camera_to_world : zed mini(depth camera) 좌표계를 fast-planner가 요구하는 좌표계로 맞춰서 publish 해주는 패키지
 2. mydrone_gui_planner : fast-planner가 생성하는 궤도를 따라가도록 드론에게 명령을 전달하는 gui
