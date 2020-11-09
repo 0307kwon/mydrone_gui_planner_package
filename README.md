@@ -26,6 +26,67 @@
 
 <img src="./readme_images/image03.png" width="500px">
 
+### camera_to_world 패키지
+
+1. zed camera 좌표계와 같은 형태의 tf를 만들어 broadcast. ( line 40 ~ 59 )
+
+```c++
+    br.sendTransform(tf::StampedTransform(transform_base, ros::Time::now(), "world", "fp_base_link"));
+
+    //카메라 tf
+    tf::Transform transform_camera;
+
+    transform_camera.setOrigin( tf::Vector3(0.0, 0.0, 0.0) );
+
+    tf::Quaternion q_orig, q_rot, q_new;
+    q_orig = tf::Quaternion(0, 0, 0, 1);
+    double r=-1.570795;
+    double p=0;
+    double y=-1.570795;
+    q_rot.setRPY(r, p, y);
+
+    q_new = q_rot*q_orig;
+    q_new.normalize();
+
+    transform_camera.setRotation( q_new );
+    br.sendTransform(tf::StampedTransform(transform_camera, ros::Time::now(), "fp_base_link", "zedm_center_camera_optical_frame"));
+    //
+```
+
+2. 1의 tf를 "/world" tf로 변환 ( line 63 ~ 71 )
+
+```c++
+        tf::StampedTransform transform;
+
+				try
+				{
+       		listener.lookupTransform("/world", "zedm_center_camera_optical_frame",
+                                ros::Time(0), transform);
+     		}catch (tf::TransformException ex){
+       		ROS_WARN("%s",ex.what());
+       		ros::Duration(1.0).sleep();
+          continue;
+     		}
+```
+
+3. 2의 변환정보를 topic "ctw/tf_pub"(3D map 생성에 사용)로 publish
+
+```c++
+        geometry_msgs::PoseStamped camera_tf;
+        camera_tf.header.frame_id = "zedm_center_camera_optical_frame";
+
+				camera_tf.header.stamp = ros::Time::now();
+				camera_tf.pose.position.x = transform.getOrigin().x();
+				camera_tf.pose.position.y = transform.getOrigin().y();
+				camera_tf.pose.position.z = transform.getOrigin().z();
+
+				camera_tf.pose.orientation.x = transform.getRotation().x();
+				camera_tf.pose.orientation.y = transform.getRotation().y();
+				camera_tf.pose.orientation.z = transform.getRotation().z();
+				camera_tf.pose.orientation.w = transform.getRotation().w();
+
+        tf_pub.publish(camera_tf);
+```
 
 
 ## 5.How to use
