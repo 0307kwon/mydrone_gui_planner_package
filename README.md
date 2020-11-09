@@ -37,6 +37,8 @@ ros topic과 비슷하게 항상 Ros 서버에 broadcast 되고 있어 언제 �
 
 ### ● camera_to_world 패키지
 
+zed mini(depth camera) 좌표계를 fast-planner가 요구하는 좌표계로 맞춰서 publish 해주는 패키지
+
 1. zed camera 좌표계와 같은 형태의 tf를 만들어 broadcast. ( line 40 ~ 59 )
 
 ```c++
@@ -97,6 +99,9 @@ tf_pub.publish(camera_tf);
 ```
 
 ### ● mydrone_gui_planner 패키지
+
+fast-planner가 생성하는 궤도를 따라가도록 드론에게 명령을 전달하는 gui
+
 => [mydrone_gui_keyboard](https://github.com/0307kwon/mydrone_gui_keyboard)의 구조와 유사  
 
 
