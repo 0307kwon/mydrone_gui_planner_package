@@ -204,10 +204,11 @@ tf_pub.publish(camera_tf);
 ## 6. Caution
 
 rviz의 map 생성이 안되는 문제가 있다면
-zed의 depth 메세지와 mavros의 위치 메세지의 timestamp가 같은 
 
-rviz의 map이 생성될 때가 있고 안될 때가 있다면
-zed의 depth 메세지와 mavros의 위치 메세지의 timestamp가 같은 선 상에 있지 않아
-생기는 문제일 수 있으니 확인.
+zed depth 정보 메세지의 timestamp와 mavros 위치 메세지의 timestamp가 크게 차이가 나는지 확인해봐야 한다.
+
+fast-planner 내부적으로 두 메세지의 timestamp가 다르다면 메세지를 받지 않도록 설계되어있음.
+
+
 
 
