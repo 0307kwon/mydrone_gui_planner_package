@@ -1,7 +1,7 @@
 # mydrone_gui_planner_package
 
 
-## 1.Summary
+## 1. Summary
 
 <img src="./mydrone_gui_planner/image/fast_planner.gif" width=500px></img>
 
@@ -87,6 +87,9 @@
 
         tf_pub.publish(camera_tf);
 ```
+
+### mydrone_gui_planner 패키지
+=> [mydrone_gui_keyboard](https://github.com/0307kwon/mydrone_gui_keyboard)의 구조와 
 
 
 ## 5.How to use
