@@ -12,6 +12,15 @@
 
 ## 2. Theory
 
+● tf란?
+
+좌표계(frame)을 추적할 수 있도록 도와주는 ros 라이브러리입니다.
+
+tf로 두 좌표계 간의 좌표 변환도 가능하고 하나의 좌표계의 과거 이력도 확인할 수 있습니다.
+
+ros topic과 비슷하게 항상 Ros 서버에 broadcast 되고 있어 언제 어떤 노드에서든지 tf를 받아 확인 할 수 있습니다.
+
+
 ## 3. Hardware structure
 
 <img src="./readme_images/image01.png" width="500px">
@@ -31,61 +40,60 @@
 1. zed camera 좌표계와 같은 형태의 tf를 만들어 broadcast. ( line 40 ~ 59 )
 
 ```c++
-    br.sendTransform(tf::StampedTransform(transform_base, ros::Time::now(), "world", "fp_base_link"));
+br.sendTransform(tf::StampedTransform(transform_base, ros::Time::now(), "world", "fp_base_link"));
 
-    //카메라 tf
-    tf::Transform transform_camera;
+//카메라 tf
+tf::Transform transform_camera;
 
-    transform_camera.setOrigin( tf::Vector3(0.0, 0.0, 0.0) );
+transform_camera.setOrigin( tf::Vector3(0.0, 0.0, 0.0) );
 
-    tf::Quaternion q_orig, q_rot, q_new;
-    q_orig = tf::Quaternion(0, 0, 0, 1);
-    double r=-1.570795;
-    double p=0;
-    double y=-1.570795;
-    q_rot.setRPY(r, p, y);
+tf::Quaternion q_orig, q_rot, q_new;
+q_orig = tf::Quaternion(0, 0, 0, 1);
+double r=-1.570795;
+double p=0;
+double y=-1.570795;
+q_rot.setRPY(r, p, y);
 
-    q_new = q_rot*q_orig;
-    q_new.normalize();
+q_new = q_rot*q_orig;
+q_new.normalize();
 
-    transform_camera.setRotation( q_new );
-    br.sendTransform(tf::StampedTransform(transform_camera, ros::Time::now(), "fp_base_link", "zedm_center_camera_optical_frame"));
-    //
+transform_camera.setRotation( q_new );
+br.sendTransform(tf::StampedTransform(transform_camera, ros::Time::now(), "fp_base_link", "zedm_center_camera_optical_frame"));
+//
 ```
 
 2. 1의 tf를 "/world" tf로 변환 ( line 63 ~ 71 )
 
 ```c++
-        tf::StampedTransform transform;
-
-				try
-				{
-       		listener.lookupTransform("/world", "zedm_center_camera_optical_frame",
-                                ros::Time(0), transform);
-     		}catch (tf::TransformException ex){
-       		ROS_WARN("%s",ex.what());
-       		ros::Duration(1.0).sleep();
-          continue;
-     		}
+tf::StampedTransform transform;
+try
+{
+	listener.lookupTransform("/world", "zedm_center_camera_optical_frame",
+	ros::Time(0), transform);
+}catch (tf::TransformException ex){
+	ROS_WARN("%s",ex.what());
+	ros::Duration(1.0).sleep();
+	continue;
+}
 ```
 
 3. 2의 변환정보를 "ctw/tf_pub"(3D map 생성에 사용) 이름으로 topic publish ( line 73 ~ 86 )
 
 ```c++
-        geometry_msgs::PoseStamped camera_tf;
-        camera_tf.header.frame_id = "zedm_center_camera_optical_frame";
+geometry_msgs::PoseStamped camera_tf;
+camera_tf.header.frame_id = "zedm_center_camera_optical_frame";
 
-				camera_tf.header.stamp = ros::Time::now();
-				camera_tf.pose.position.x = transform.getOrigin().x();
-				camera_tf.pose.position.y = transform.getOrigin().y();
-				camera_tf.pose.position.z = transform.getOrigin().z();
+camera_tf.header.stamp = ros::Time::now();
+camera_tf.pose.position.x = transform.getOrigin().x();
+camera_tf.pose.position.y = transform.getOrigin().y();
+camera_tf.pose.position.z = transform.getOrigin().z();
 
-				camera_tf.pose.orientation.x = transform.getRotation().x();
-				camera_tf.pose.orientation.y = transform.getRotation().y();
-				camera_tf.pose.orientation.z = transform.getRotation().z();
-				camera_tf.pose.orientation.w = transform.getRotation().w();
+camera_tf.pose.orientation.x = transform.getRotation().x();
+camera_tf.pose.orientation.y = transform.getRotation().y();
+camera_tf.pose.orientation.z = transform.getRotation().z();
+camera_tf.pose.orientation.w = transform.getRotation().w();
 
-        tf_pub.publish(camera_tf);
+tf_pub.publish(camera_tf);
 ```
 
 ### mydrone_gui_planner 패키지
