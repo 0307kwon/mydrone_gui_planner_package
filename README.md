@@ -2,17 +2,17 @@
 
 ## 0. index
 
-1. [Summary](https://github.com/0307kwon/mydrone_gui_planner_package/blob/master/README.md#1-summary)
+1. [Summary](https://github.com/0307kwon/mydrone_gui_planner_package#1-summary)
 
-2. [Theory](https://github.com/0307kwon/mydrone_gui_planner_package/blob/master/README.md#2-theory)
+2. [Theory](https://github.com/0307kwon/mydrone_gui_planner_package#2-theory)
 
-3. [Hardware structure](https://github.com/0307kwon/mydrone_gui_planner_package/blob/master/README.md#3-hardware-structure)
+3. [Hardware structure](https://github.com/0307kwon/mydrone_gui_planner_package#3-hardware-structure)
 
-4. [Code structure](https://github.com/0307kwon/mydrone_gui_planner_package/blob/master/README.md#4-code-structure)
+4. [Code structure](https://github.com/0307kwon/mydrone_gui_planner_package#4-code-structure)
 
-5. [How to use](https://github.com/0307kwon/mydrone_gui_planner_package/blob/master/README.md#5how-to-use)
+5. [How to use]https://github.com/0307kwon/mydrone_gui_planner_package#5how-to-use)
 
-6. [Caution](https://github.com/0307kwon/mydrone_gui_planner_package/blob/master/README.md#6-caution)
+6. [Caution](https://github.com/0307kwon/mydrone_gui_planner_package#6-caution)
 
 
 ## 1. Summary
