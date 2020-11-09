@@ -69,7 +69,7 @@
      		}
 ```
 
-3. 2의 변환정보를 topic "ctw/tf_pub"(3D map 생성에 사용)로 publish
+3. 2의 변환정보를 topic "ctw/tf_pub"(3D map 생성에 사용)로 publish ( line 73 ~ 86 )
 
 ```c++
         geometry_msgs::PoseStamped camera_tf;
