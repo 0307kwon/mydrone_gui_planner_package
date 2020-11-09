@@ -3,11 +3,9 @@
 
 ## 1.summary
 
-HKUST의 fast-planner에 gui를 적용할 때 필요한 패키지들
+<img src="./mydrone_gui_planner/image/fast_planner.gif" width=500px></img>
 
-
-<img src="./mydrone_gui_planner/image/fast_planner.gif" width="100%"></img>
-
+장애물 회피 경로를 만들어주는 [HKUST의 fast-planner](https://github.com/HKUST-Aerial-Robotics/Fast-Planner)를 실제 드론에 적용할 때 필요한 패키지들
 
 1. camera_to_world : camera pose를 fast-planner가 요구하는 좌표계로 맞춰서 publish 해주는 패키지
 2. mydrone_gui_planner : fast-planner에 대응하는 gui
